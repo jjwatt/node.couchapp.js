@@ -70,7 +70,7 @@ function loadFiles(dir, options) {
 
   listings.forEach(function (listing) {
     var file = path.join(dir, listing)
-      , prop = listing.split('.')[0] // probably want regexp or something more robust
+      , prop = listing.split('.').slice(0, -1).join('.') // probably want regexp or something more robust
       , stat = fs.statSync(file);
 
       if (stat.isFile()) { 
